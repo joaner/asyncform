@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>async form</title>
+    </head>
+    <body>
+        <p>submit form with async</p>
+        <form action="post.json" method="get" enctype="multipart/form-data">
+            <input type="file" name="file"/>
+            <input type="submit" />
+        </form>
+        <script src="../asyncform.js"></script>
+        <script>
+            document.forms[0].async({
+                error: function(e) {
+                    console.log(e);
+                    alert(e);
+                },
+                success: function(response) {
+                    alert(response.title);
+                }
+            });
+        </script>
+    </body>
+</html>
